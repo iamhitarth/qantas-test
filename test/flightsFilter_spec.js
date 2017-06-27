@@ -411,7 +411,7 @@ describe('Flights filter will return', () => {
   let filtered = flightFilter.getFlights(request.flights, 'SYD', false);
 
   it('array of flights.', () => {
-
+ 
     assert(filtered);
 
   });
