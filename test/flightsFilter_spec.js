@@ -412,6 +412,7 @@ describe('Flights filter will return', () => {
   it('JSON object with flights key with array of flights.', () => {
 
     assert(flightFilter.getFlights(request.flights).flights);
+    console.log(flightFilter.getFlights(request.flights).flights.length);
 
   });
 
@@ -421,5 +422,13 @@ describe('Flights filter will return', () => {
 
   });
 
-  it('just the expected fields.', () => {});
+  it('just the expected fields.', () => {
+
+    assert.deepEqual(flightFilter.getFlights(request.flights, 'SYD', false).flights[0], {
+      'flight': 'QF564',
+      'origin': 'PER',
+      'destination': 'SYD',
+      'departureTime': '2017-06-22T02:45:00Z'
+    });
+  });
 });
