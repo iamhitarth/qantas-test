@@ -407,14 +407,19 @@ describe('Flights filter will return', () => {
       "airline": "QF"
     }
   ]
-  }
+  };
 
   it('JSON object with flights key with array of flights.', () => {
 
-    assert(flightFilter.getFlights(request));
+    assert(flightFilter.getFlights(request.flights).flights);
+
   });
 
-  it('a filtered list of flights.', () => {});
+  it('a filtered list of flights.', () => {
+
+    assert.equal(flightFilter.getFlights(request.flights, 'SYD', false).flights.length, 7);
+
+  });
 
   it('just the expected fields.', () => {});
 });
