@@ -410,25 +410,27 @@ describe('Flights filter will return', () => {
   };
   let filtered = flightFilter.getFlights(request.flights, 'SYD', false);
 
-  it('JSON object with flights key with array of flights.', () => {
+  it('array of flights.', () => {
 
-    assert(filtered.flights);
-
-  });
-
-  it('a filtered list of flights.', () => {
-
-    assert.equal(filtered.flights.length, 7);
+    assert(filtered);
 
   });
 
-  it('just the expected fields.', () => {
+  it('a filtered array of flights.', () => {
 
-    assert.deepEqual(filtered.flights[0], {
+    assert.equal(filtered.length, 7);
+
+  });
+
+  it('just the expected fields for each flight.', () => {
+
+    assert.deepEqual(filtered[0], {
       'flight': 'QF564',
       'origin': 'PER',
       'destination': 'SYD',
       'departureTime': '2017-06-22T02:45:00Z'
     });
+
   });
+
 });
